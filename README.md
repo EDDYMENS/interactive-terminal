@@ -21,5 +21,5 @@ There is also a [complete tutorial](#) detailing how different parts of the code
 
 
 ## TODO:
-- [x] Enable key combo detection.
-- [x] Enable arrow key usage.
+- [] Enable key combo detection.
+- [] Enable arrow key usage.
