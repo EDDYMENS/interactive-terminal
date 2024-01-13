@@ -14,13 +14,27 @@ var ptyProcess = pty.spawn(shell, [], {
 });
 wss.on('connection', ws => {
     console.log("new session")
+
+    // Catch incoming request
     ws.on('message', command => {
-        ptyProcess.write(command);
+        var processedCommand = commandProcessor(command)
+        // console.log(processedCommand, "incoming command");
+        ptyProcess.write(processedCommand);
     })
 
-    ptyProcess.on('data', function (data) {
-        ws.send(data)
-        console.log(data);
+    // Output: Sent to the frontend
+    ptyProcess.on('data', function (rawOutput) {
+        var processedOutput = outputProcessor(rawOutput);
+        ws.send(processedOutput);
+        console.log(processedOutput);
 
     });
 })
+
+const commandProcessor = function(command) {
+    return command;
+}
+
+const outputProcessor = function(output) {
+    return output;
+}
