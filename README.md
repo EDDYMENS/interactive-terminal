@@ -20,5 +20,5 @@ Also, don't forget to update the WebSocket URL in `frontend.js`.
 There is also a [complete tutorial](https://www.eddymens.com/blog/creating-a-browser-based-interactive-terminal-using-xtermjs-and-nodejs) detailing how different parts of the code work.
 
 # Changelog
-V1 [Hash](https://github.com/EDDYMENS/interactive-terminal/commit/0f27f59decbffe1cb322dac53b131cc281d2ad16) - Improved to support 1:1 mirroring of an actual terminal  e.g: Vim works with this implementation
-V2 [Hash](https://github.com/EDDYMENS/interactive-terminal/commit/6a517bb3c9102628eb20f1f470af97c3502fe935) - Initial release.
+- V1 [Hash](https://github.com/EDDYMENS/interactive-terminal/commit/0f27f59decbffe1cb322dac53b131cc281d2ad16) - Improved to support 1:1 mirroring of an actual terminal  e.g: Vim works with this implementation
+- V2 [Hash](https://github.com/EDDYMENS/interactive-terminal/commit/6a517bb3c9102628eb20f1f470af97c3502fe935) - Initial release.
