@@ -18,7 +18,6 @@ wss.on('connection', ws => {
     // Catch incoming request
     ws.on('message', command => {
         var processedCommand = commandProcessor(command)
-        // console.log(processedCommand, "incoming command");
         ptyProcess.write(processedCommand);
     })
 
