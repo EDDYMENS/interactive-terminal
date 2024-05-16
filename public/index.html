@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Terminal Manager</title>
+  <style>
+    body,
+    html {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Terminal Manager</h1>
+  <button class="button" onclick="createTerminal()">Create New Terminal</button>
+
+  <script>
+    function createTerminal() {
+      window.location.href = '/new';
+    }
+  </script>
+</body>
+
+</html>

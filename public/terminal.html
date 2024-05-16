@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Socket.IO Client</title>
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xterm/lib/xterm.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xterm/css/xterm.css" />
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #terminal {
+            flex: 1;
+            width: 100%;
+        }
+
+        #inputArea {
+            display: flex;
+            padding: 10px;
+        }
+
+        #inputArea input {
+            flex: 1;
+            padding: 5px 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="terminal"></div>
+    <div id="inputArea">
+        <input type="text" id="commandInput" placeholder="Type command here and press Enter">
+    </div>
+    <script>
+        const terminalId = window.location.pathname.split("/").pop();
+        const socket = io("http://localhost:6060");
+        var term = new window.Terminal({ cursorBlink: true });
+
+        socket.on("connect", () => {
+            console.log("Connected to server");
+            socket.emit("join", terminalId);
+        });
+
+        socket.on("output", (data) => {
+            term.write(data);
+        });
+
+        term.open(document.getElementById("terminal"));
+        term.writeln('Welcome to the terminal.');
+        term.writeln('');
+
+        const input = document.getElementById("commandInput");
+        input.addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                const command = input.value;
+                if (command.trim() !== '') {
+                    socket.emit("command", { terminalId, command: command });
+                    input.value = ''; // Clear input after sending
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
