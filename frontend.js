@@ -27,6 +27,15 @@ function init() {
     term.onKey(keyObj => {
         runCommand(keyObj.key);
     });
+    term.attachCustomKeyEventHandler((e) => {
+        if ((e.ctrlKey || e.metaKey) && e.key === 'v') {
+            navigator.clipboard.readText().then(text => {
+                runCommand(text);
+            });
+            return false;
+        }
+        return true;
+    });
 }
 
 function runCommand(command) {
