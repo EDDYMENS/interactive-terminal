@@ -2,12 +2,12 @@
 
 An interactive terminal that runs in the browser using WebSockets, built with Node.js and xterm.js.
 
-## Features:
+## Features
 - Real-time terminal interaction via WebSockets.
 - Supports full terminal interactivity (e.g., Vim, Nano).
 - Options for shared or individual terminal sessions.
 
-## Requirements:
+## Requirements
 - Node.js - v16 or higher.
 - NPM
 
