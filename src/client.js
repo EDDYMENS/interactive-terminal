@@ -1,5 +1,8 @@
 
-const socket = new WebSocket("ws://localhost:6060");
+const socketProtocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+const socketUrl = `${socketProtocol}//${window.location.host}`;
+const socket = new WebSocket(socketUrl);
+
 socket.onmessage = (event) => {
     term.write(event.data);
 
@@ -27,6 +30,7 @@ function init() {
     term.onKey(keyObj => {
         runCommand(keyObj.key);
     });
+
     term.attachCustomKeyEventHandler((e) => {
         if ((e.ctrlKey || e.metaKey) && e.key === 'v') {
             navigator.clipboard.readText().then(text => {

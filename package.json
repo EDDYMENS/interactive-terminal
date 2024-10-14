@@ -1,4 +1,10 @@
 {
+  "name": "interactive-terminal-xtermjs",
+  "version": "2.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js"
+  },
   "dependencies": {
     "node-pty": "^0.10.1",
     "ws": "^8.8.1"
