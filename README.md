@@ -45,7 +45,7 @@ The frontend automatically loads in your browser at `http://localhost:6060` when
 ## Customization
 
 - **Port Configuration**: To change the default port, update the port number in the `/src/server.js` file.
-- **Shared or Individual Sessions**: The terminal can either run as a shared session for all users or create an individual session per user. This can be configured within the code by setting the boolean value flag in `server.js`.
+- **Shared or Individual Sessions**: The terminal can either run as a shared session for all users or create an individual session per user. This can be configured by setting the boolean value of `setSharedTerminalMode(false);` in `server.js`.
 
 ## Documentation & Tutorial
 

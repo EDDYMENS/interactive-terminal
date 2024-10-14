@@ -9,7 +9,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Config
-setSharedTerminalMode(false);  // Set this to false for individual user terminals
+setSharedTerminalMode(false); // Set this to false to allow a shared session
 const port = 6060;
 
 const server = http.createServer((req, res) => {
